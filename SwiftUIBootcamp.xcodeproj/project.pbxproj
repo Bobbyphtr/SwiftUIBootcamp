@@ -14,6 +14,7 @@
 		8A6C4BD62983CDBD0035A72E /* SwiftUIBootcampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C4BD52983CDBD0035A72E /* SwiftUIBootcampTests.swift */; };
 		8A6C4BE02983CDBD0035A72E /* SwiftUIBootcampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C4BDF2983CDBD0035A72E /* SwiftUIBootcampUITests.swift */; };
 		8A6C4BE22983CDBD0035A72E /* SwiftUIBootcampUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C4BE12983CDBD0035A72E /* SwiftUIBootcampUITestsLaunchTests.swift */; };
+		8A6C4BEF2983CDDB0035A72E /* HelloWorldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C4BEE2983CDDB0035A72E /* HelloWorldViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		8A6C4BDB2983CDBD0035A72E /* SwiftUIBootcampUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIBootcampUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6C4BDF2983CDBD0035A72E /* SwiftUIBootcampUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBootcampUITests.swift; sourceTree = "<group>"; };
 		8A6C4BE12983CDBD0035A72E /* SwiftUIBootcampUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBootcampUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8A6C4BEE2983CDDB0035A72E /* HelloWorldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		8A6C4BC22983CDBA0035A72E /* SwiftUIBootcamp */ = {
 			isa = PBXGroup;
 			children = (
+				8A6C4BEE2983CDDB0035A72E /* HelloWorldViewController.swift */,
 				8A6C4BC32983CDBA0035A72E /* SwiftUIBootcampApp.swift */,
 				8A6C4BC52983CDBA0035A72E /* ContentView.swift */,
 				8A6C4BC72983CDBD0035A72E /* Assets.xcassets */,
@@ -261,6 +264,7 @@
 			files = (
 				8A6C4BC62983CDBA0035A72E /* ContentView.swift in Sources */,
 				8A6C4BC42983CDBA0035A72E /* SwiftUIBootcampApp.swift in Sources */,
+				8A6C4BEF2983CDDB0035A72E /* HelloWorldViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +354,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -401,6 +407,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -434,8 +442,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftUIBootcamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,8 +478,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SwiftUIBootcamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

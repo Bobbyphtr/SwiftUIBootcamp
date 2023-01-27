@@ -12,6 +12,21 @@ struct SwiftUIBootcampApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            ViewControllerRepresentable()
         }
     }
+}
+
+struct ViewControllerRepresentable: UIViewControllerRepresentable {
+
+    typealias UIViewControllerType = UIViewController
+    
+    func makeUIViewController(context: Context) -> UIViewController {
+        return UINavigationController(rootViewController: HelloWorldViewController())
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        //
+    }
+    
 }
