@@ -9,7 +9,9 @@ import SwiftUI
 
 struct RegisterView: View {
     
-    @State var nameText: String = ""
+    @EnvironmentObject var viewModel: RegisterViewModel
+    
+    /// We because textfield need a string binding.
     @State var ageText: String = ""
     
     var body: some View {
@@ -22,20 +24,30 @@ struct RegisterView: View {
                 .padding(.bottom, 16.0)
             
             VStack(spacing: 16.0) {
-                BorderedTextField(placeholder: "Name", textBind: $nameText)
+                BorderedTextField(placeholder: "Name", textBind: $viewModel.name)
                 BorderedTextField(placeholder: "Age", textBind: $ageText)
+                    .onChange(of: ageText, perform: { newValue in
+                        // Convert into Integers
+                        self.viewModel.age = Int(newValue) ?? -1
+                    })
                     .keyboardType(.numberPad)
-                Button {
-                    // submit action
-                } label: {
-                    Text("Submit")
-                        .frame(maxWidth: .infinity)
-                        .padding(8.0)
-                }
-                .buttonStyle(.borderedProminent)
+Button {
+    // Submit action
+    print("Name: \(viewModel.name)")
+    print("Age: \(viewModel.age)")
+    print("PhoneNumber: \(viewModel.phoneNumber)")
+} label: {
+    NavigationLink("Next") {
+        PhoneNumberView()
+    }
+    .frame(maxWidth: .infinity)
+    .padding(8.0)
+}
+.buttonStyle(.borderedProminent)
             } // - Register Form
-            Text("Name: \(nameText)")
-            Text("Age: \(ageText)")
+            Text("RegisterViewModel")
+            Text("Name: \(viewModel.name)")
+            Text("Age: \(viewModel.age)")
         } // - Main Stack
         .padding(.horizontal, 16.0)
     }

@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct SwiftUIBootcampApp: App {
+    
+    private var registerViewModel : RegisterViewModel = RegisterViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//            ViewControllerRepresentable()
+            NavigationView {
+                RegisterView()
+            }
+            .environmentObject(registerViewModel)
         }
     }
 }

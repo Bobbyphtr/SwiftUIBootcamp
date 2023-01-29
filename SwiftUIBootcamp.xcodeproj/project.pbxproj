@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A245C9F2986816700887AC3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A245C9E2986816700887AC3 /* RegisterView.swift */; };
+		8A245CA12986826300887AC3 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A245CA02986826300887AC3 /* RegisterViewModel.swift */; };
+		8A245CA329869ADD00887AC3 /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A245CA229869ADD00887AC3 /* PhoneNumberView.swift */; };
 		8A6C4BC42983CDBA0035A72E /* SwiftUIBootcampApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C4BC32983CDBA0035A72E /* SwiftUIBootcampApp.swift */; };
 		8A6C4BC62983CDBA0035A72E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C4BC52983CDBA0035A72E /* ContentView.swift */; };
 		8A6C4BC82983CDBD0035A72E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A6C4BC72983CDBD0035A72E /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		8A245C9E2986816700887AC3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		8A245CA02986826300887AC3 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		8A245CA229869ADD00887AC3 /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
 		8A6C4BC02983CDBA0035A72E /* SwiftUIBootcamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIBootcamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6C4BC32983CDBA0035A72E /* SwiftUIBootcampApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBootcampApp.swift; sourceTree = "<group>"; };
 		8A6C4BC52983CDBA0035A72E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				8A6C4BC32983CDBA0035A72E /* SwiftUIBootcampApp.swift */,
 				8A6C4BC52983CDBA0035A72E /* ContentView.swift */,
 				8A245C9E2986816700887AC3 /* RegisterView.swift */,
+				8A245CA229869ADD00887AC3 /* PhoneNumberView.swift */,
+				8A245CA02986826300887AC3 /* RegisterViewModel.swift */,
 				8A6C4BC72983CDBD0035A72E /* Assets.xcassets */,
 				8A6C4BC92983CDBD0035A72E /* SwiftUIBootcamp.entitlements */,
 				8A6C4BCA2983CDBD0035A72E /* Preview Content */,
@@ -265,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A245CA329869ADD00887AC3 /* PhoneNumberView.swift in Sources */,
 				8A6C4BC62983CDBA0035A72E /* ContentView.swift in Sources */,
+				8A245CA12986826300887AC3 /* RegisterViewModel.swift in Sources */,
 				8A245C9F2986816700887AC3 /* RegisterView.swift in Sources */,
 				8A6C4BC42983CDBA0035A72E /* SwiftUIBootcampApp.swift in Sources */,
 				8A6C4BEF2983CDDB0035A72E /* HelloWorldViewController.swift in Sources */,
