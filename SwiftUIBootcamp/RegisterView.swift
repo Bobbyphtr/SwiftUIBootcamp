@@ -67,3 +67,10 @@ struct BorderedTextField: View {
             )
     }
 }
+
+// MARK: - Previews
+struct Previews_RegisterView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegisterView()
+    }
+}
