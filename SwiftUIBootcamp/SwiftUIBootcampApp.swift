@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct SwiftUIBootcampApp: App {
     
+    @ObservedObject
     private var registerViewModel : RegisterViewModel = RegisterViewModel()
     
     var body: some Scene {
