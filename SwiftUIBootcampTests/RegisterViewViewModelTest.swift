@@ -96,41 +96,41 @@ final class RegisterViewViewModelTest: QuickSpec {
                         .toEventually(equal(PhoneError.notNumber.errorDescription))
                 }
                 
-it("should failed if phone format under 11 digits") {
-    // Set expectations!
-    let expectation = XCTestExpectation(description: "Phone number error not triggered yet!")
-    // arrange
-    let phoneInput: String = "08234"
-    
-    sut.$phoneNumberValidationError
-        .dropFirst()
-        .sink { value in
-            // Assert!
-            expect(value).to(equal(PhoneError.notCorrectLength.errorDescription))
-            expectation.fulfill()
-        }
-        .store(in: &cancellables)
-    
-    // act
-    sut.phoneNumber = phoneInput
-    
-    self.wait(for: [expectation], timeout: 1.0)
-}
+                it("should failed if phone format under 11 digits") {
+                    // Set expectations!
+                    let expectation = XCTestExpectation(description: "Phone number error not triggered yet!")
+                    // arrange
+                    let phoneInput: String = "08234"
+                    
+                    sut.$phoneNumberValidationError
+                        .dropFirst()
+                        .sink { value in
+                            // Assert!
+                            expect(value).to(equal(PhoneError.notCorrectLength.errorDescription))
+                            expectation.fulfill()
+                        }
+                        .store(in: &cancellables)
+                    
+                    // act
+                    sut.phoneNumber = phoneInput
+                    
+                    self.wait(for: [expectation], timeout: 1.0)
+                }
                 
             }
         }
         
         context("Age validation") {
             
-            //            it("should pass if age is more than 0") {
-            //
-            //                // act
-            //                sut.age = -1
-            //                expect(sut.ageValidationError).toNever(beNil(),
-            //                                                            timeout: .seconds(1), pollInterval: .milliseconds(500))
-            //
-            //            }
-            
+//            it("should pass if age is more than 0") {
+//
+//                // act
+//                sut.age = -1
+//                expect(sut.ageValidationError).toNever(beNil(),
+//                                                            timeout: .seconds(1), pollInterval: .milliseconds(500))
+//
+//            }
+
             it("should failed if age is empty") {
                 
                 // arrange
@@ -158,11 +158,11 @@ it("should failed if phone format under 11 digits") {
         
         context("Name validation") {
             
-            //            it("should pass if name is exist") {
-            //                sut.name = nil
-            //
-            //                expect(sut.nameValidationError).toEventually(beNil())
-            //            }
+//            it("should pass if name is exist") {
+//                sut.name = nil
+//
+//                expect(sut.nameValidationError).toEventually(beNil())
+//            }
             
             it("should failed if name is nil") {
                 
