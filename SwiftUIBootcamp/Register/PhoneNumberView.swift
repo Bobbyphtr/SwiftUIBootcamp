@@ -26,6 +26,7 @@ struct PhoneNumberView: View {
                         self.registerVM.phoneNumber = newValue.isEmpty ? nil : newValue
                     }
                     .keyboardType(.phonePad)
+                    .accessibilityIdentifier("register.phone.field")
                 Button {
                     
                 } label: {
@@ -39,6 +40,7 @@ struct PhoneNumberView: View {
                             .padding(.vertical, 8.0)
                     }
                 }
+                .accessibilityIdentifier("register.button.submit")
                 .disabled(!isFormValid)
                 .buttonStyle(.automatic)
             }

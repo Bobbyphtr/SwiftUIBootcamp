@@ -5,37 +5,137 @@
 //  Created by Bobby Pehtrus on 27/01/23.
 //
 
+import Foundation
 import XCTest
 
+/*
+ 
+ Some features are not meant to be tested on UITest. This is just for demonstration purposes only.
+ UITest is for flows.
+ */
+
 final class SwiftUIBootcampUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    
+    
+    // This is an okay UITest
+    func testRegisterView_whenCompleteRegisterFlow_showWelcomeView() {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let nameField = app.textFields["register.name.field"]
+        let ageField = app.textFields["register.age.field"]
+        let nextButton = app.buttons["register.button.next"]
+        
+        nameField.tap()
+        nameField.typeText("Bobby")
+        
+        ageField.tap()
+        ageField.typeText("12")
+        
+        nextButton.tap()
+        
+        let phoneField = app.textFields["register.phone.field"]
+        let submitButton = app.buttons["register.button.submit"]
+        
+        phoneField.tap()
+        phoneField.typeText("0818800818880")
+        
+        submitButton.tap()
+        
+        let welcomeText1 = app.staticTexts["Welcome, Bobby!"]
+        let welcomeText2 = app.staticTexts["You are 12 year(s) old"]
+        let welcomeText3 = app.staticTexts["We can call you on 0818800818880"]
+        
+        XCTAssertTrue(welcomeText1.exists)
+        XCTAssertTrue(welcomeText2.exists)
+        XCTAssertTrue(welcomeText3.exists)
+        
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+ 
+    
+    // This is an okay UITest. But can be unit tested.
+    func testRegisterView_whenViewLoaded_allFieldIsEnabled() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let nameField = app.textFields["register.name.field"]
+        let ageField = app.textFields["register.age.field"]
+        let nextButton = app.buttons["register.button.next"]
+        
+        XCTAssertTrue(nameField.isEnabled, "Name field should be enabled.")
+        XCTAssertTrue(ageField.isEnabled, "Age field should be enabled")
+        XCTAssertFalse(nextButton.isEnabled, "Next button should be disabled")
+        
+        // Check if placeholder value has value.
+        // This is not a good practice because if the placeholder is changing, the test broke. You can use NSLocalization instead and strings.
+        XCTAssertEqual(nameField.placeholderValue, "Name")
+        XCTAssertEqual(ageField.placeholderValue, "Age")
+        
     }
+    
+    
+    // Unit testable.
+    func testViewController_whenEmptyNameTyped_presentErrorLabel() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        var stringValue: String
+        var deleteString: String
+        
+        // MARK: - Fill Name and remove it should show error
+        
+        // arrange
+        let nameField = app.textFields["register.name.field"]
+        
+        // act
+        stringValue = "Type this first"
+        nameField.tap()
+        nameField.typeText(stringValue)
+        
+        // empty type later
+        deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count + 5)
+        nameField.typeText(deleteString)
+                
+        
+        // We have debounce, thus we need to wait for the error to exist.
+        XCTAssertTrue(app.staticTexts["Input should not be empty!"].waitForExistence(timeout: 2.0))
+    }
+    
+    // Unit testable.
+    func testViewController_whenEmptyAge_presentErrorLabel() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let ageField = app.textFields["register.age.field"]
+        
+        // act
+        let stringValue = "12"
+        ageField.tap()
+        ageField.typeText(stringValue)
+        
+        // empty type later
+        let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
+        ageField.typeText(deleteString)
+        
+        // We have debounce, thus we need to wait for the error to exist.
+        XCTAssertTrue(app.staticTexts["Input should not be empty!"].waitForExistence(timeout: 2.0))
+    }
+    
+    // Unit testable.
+    func testViewController_when0Age_presentErrorLabel() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // MARK: - Fill age and remove it should show error
+        let ageField = app.textFields["register.age.field"]
+        
+        // act
+        let stringValue = "0"
+        ageField.tap()
+        ageField.typeText(stringValue)
+        
+        // We have debounce, thus we need to wait for the error to exist.
+        XCTAssertTrue(app.staticTexts["Age should not be 0!"].waitForExistence(timeout: 1.0))
+    }
+    
 }

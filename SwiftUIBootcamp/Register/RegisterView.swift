@@ -33,6 +33,7 @@ struct RegisterView: View {
                 .onChange(of: nameText) { newValue in
                     self.viewModel.name = newValue.isEmpty ? nil : newValue
                 }
+                .accessibilityIdentifier("register.name.field")
                 
                 BorderedTextField(placeholder: "Age",
                                   textBind: $ageText,
@@ -41,6 +42,7 @@ struct RegisterView: View {
                     // Convert into Integers
                     self.viewModel.age = Int(newValue)
                 })
+                .accessibilityIdentifier("register.age.field")
                 .keyboardType(.numberPad)
                 Button {
                     // Submit action
@@ -53,6 +55,7 @@ struct RegisterView: View {
                 }
                 .disabled(!isFormValid)
                 .buttonStyle(.automatic)
+                .accessibilityIdentifier("register.button.next")
             } // - Register Form
             Text("RegisterViewModel")
             Text("Name: \(viewModel.name ?? "nil")")
@@ -99,8 +102,10 @@ struct BorderedTextField: View {
                     RoundedRectangle(cornerRadius: 8.0)
                         .stroke()
                 )
+                .accessibilityIdentifier("borderedtextfield.textfield")
             Text(errorTextBind ?? "")
                 .foregroundColor(Color.red)
+                .accessibilityIdentifier("borderedtextfield.errortext")
         }
         
     }

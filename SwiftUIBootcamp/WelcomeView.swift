@@ -20,12 +20,19 @@ struct WelcomeView: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Welcome, \(name)!")
-            Text("You are \(age) year(s) old")
-            Text("We can call you on \(phoneNumber)")
+        ZStack {
+            Color.green
+                .ignoresSafeArea()
+            VStack {
+                Text("Welcome, \(name)!")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text("You are \(age) year(s) old")
+                    .padding(.top, 8.0)
+                Text("We can call you on \(phoneNumber)")
+            }
+            .foregroundColor(Color.white)
         }
-        
     }
 }
 
