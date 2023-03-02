@@ -22,8 +22,8 @@ final class SwiftUIBootcampUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let nameField = app.textFields["register.name.field"]
-        let ageField = app.textFields["register.age.field"]
+        let nameField = getTextfieldFromElementId(app: app, "register.name.field")
+        let ageField = getTextfieldFromElementId(app: app, "register.age.field")
         let nextButton = app.buttons["register.button.next"]
         
         nameField.tap()
@@ -34,7 +34,7 @@ final class SwiftUIBootcampUITests: XCTestCase {
         
         nextButton.tap()
         
-        let phoneField = app.textFields["register.phone.field"]
+        let phoneField = getTextfieldFromElementId(app: app, "register.phone.field")
         let submitButton = app.buttons["register.button.submit"]
         
         phoneField.tap()
@@ -58,8 +58,8 @@ final class SwiftUIBootcampUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let nameField = app.textFields["register.name.field"]
-        let ageField = app.textFields["register.age.field"]
+        let nameField = getTextfieldFromElementId(app: app, "register.name.field")
+        let ageField = getTextfieldFromElementId(app: app, "register.age.field")
         let nextButton = app.buttons["register.button.next"]
         
         XCTAssertTrue(nameField.isEnabled, "Name field should be enabled.")
@@ -85,7 +85,7 @@ final class SwiftUIBootcampUITests: XCTestCase {
         // MARK: - Fill Name and remove it should show error
         
         // arrange
-        let nameField = app.textFields["register.name.field"]
+        let nameField = getTextfieldFromElementId(app: app, "register.name.field")
         
         // act
         stringValue = "Type this first"
@@ -106,7 +106,7 @@ final class SwiftUIBootcampUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let ageField = app.textFields["register.age.field"]
+        let ageField = getTextfieldFromElementId(app: app, "register.age.field")
         
         // act
         let stringValue = "12"
@@ -127,7 +127,7 @@ final class SwiftUIBootcampUITests: XCTestCase {
         app.launch()
         
         // MARK: - Fill age and remove it should show error
-        let ageField = app.textFields["register.age.field"]
+        let ageField = getTextfieldFromElementId(app: app, "register.age.field")
         
         // act
         let stringValue = "0"
@@ -138,4 +138,18 @@ final class SwiftUIBootcampUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Age should not be 0!"].waitForExistence(timeout: 1.0))
     }
     
+}
+
+
+extension XCTestCase {
+    
+    func getTextfieldFromElementId(app: XCUIApplication, _ accessibilityIdentifier: String) -> XCUIElement {
+        return app.otherElements[accessibilityIdentifier].children(matching: .textField)["borderedtextfield.textfield"]
+        
+        
+    }
+    
+    func getErrorTextFromElementId(app: XCUIApplication, _ accessibilityIdentifier: String) -> XCUIElement {
+        return app.otherElements[accessibilityIdentifier].children(matching: .staticText)["borderedtextfield.errortext"]
+    }
 }

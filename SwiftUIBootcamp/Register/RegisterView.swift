@@ -107,7 +107,7 @@ struct BorderedTextField: View {
                 .foregroundColor(Color.red)
                 .accessibilityIdentifier("borderedtextfield.errortext")
         }
-        
+        .accessibilityElement(children: .contain)
     }
 }
 
