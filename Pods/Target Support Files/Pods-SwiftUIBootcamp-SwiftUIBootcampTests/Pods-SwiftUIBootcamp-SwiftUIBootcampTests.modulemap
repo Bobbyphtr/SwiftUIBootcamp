@@ -1,0 +1,6 @@
+framework module Pods_SwiftUIBootcamp_SwiftUIBootcampTests {
+  umbrella header "Pods-SwiftUIBootcamp-SwiftUIBootcampTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
